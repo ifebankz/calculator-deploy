@@ -46,8 +46,35 @@
   <p id="result">Result: </p>
 
   <script>
+    function getValues() {
+      const num1 = document.getElementById("num1").value;
+      const num2 = document.getElementById("num2").value;
+
+      // Convert to numbers, use 0 if empty
+      const n1 = parseFloat(num1) || 0;
+      const n2 = parseFloat(num2) || 0;
+
+      return { n1, n2 };
+    }
+
     function add() {
-      const num1 = parseFloat(document.getElementById("num1").value);
-      const num2 = parseFloat(document.getElementById("num2").value);
-      const result = num1 + num2;
-      document.getElementById("result").innerText = "Result: " +
+      const { n1, n2 } = getValues();
+      const result = n1 + n2;
+      document.getElementById("result").innerText = "Result: " + result;
+    }
+
+    function multiply() {
+      const { n1, n2 } = getValues();
+      const result = n1 * n2;
+      document.getElementById("result").innerText = "Result: " + result;
+    }
+
+    function clearFields() {
+      document.getElementById("num1").value = "";
+      document.getElementById("num2").value = "";
+      document.getElementById("result").innerText = "Result: ";
+    }
+  </script>
+
+</body>
+</html>
